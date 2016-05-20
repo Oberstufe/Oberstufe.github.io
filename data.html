@@ -1,0 +1,543 @@
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="shadow.css">
+<style type="text/css">
+body {
+	font-family: Sans-serif;
+	background-color: #F1F1F1;;
+}
+</style>
+</head>
+<body>
+	<div style="padding: 25px 0px; width: 95%; -webkit-transform:translateX(-50%); transform:translateX(-50%); left: 50%; position: relative; background-color: white;" class="z-shadow2">
+	<input type="search" id="fach" list="fachlist" placeholder="Fach" style="width: 95%; font-size: 40px; -webkit-transform:translateX(-50%); transform:translateX(-50%); left: 50%; position: relative; border: 1px solid black; color: black;">
+  		<datalist id="fachlist">
+		    <option value="Deutsch">
+		    <option value="Englisch(Klasse5)">
+		    <option value="Latein">
+		    <option value="Französisch">
+		    <option value="Spanisch">
+		    <option value="Kunst">
+		    <option value="Musik">
+		    <option value="Geschichte">
+		    <option value="Sozialwissenschaften">
+		    <option value="Erdkunde">
+		    <option value="Pädagogik">
+		    <option value="Philosophie">
+		    <option value="Biologie">
+		    <option value="Chemie"> 
+		    <option value="Physik">
+		    <option value="Informatik"> 
+		    <option value="Mathematik"> 
+			<option value="katholische Religion"> 
+		    <option value="evangelische Religion">
+		    <option value="Sport">
+			<option value="Englischvertierfung">
+		    <option value="Mathematikvertierfung">  
+  		</datalist></br>
+  		<div  style="max-width: 400px; -webkit-transform:translateX(-50%); transform:translateX(-50%); left: 50%; position: relative;">
+  	<span style="font-size: 40px; color: black;">Kurs(Nummer) </span><input type="number" min="0" max="5" style="margin-top: 5px; font-size: 40px; border: 1px solid black; color: black;" id="kurs"></br></div></div>
+	<button id="submit" onclick="search()" style="-webkit-transform:translateX(-50%);
+	transform:translateX(-50%); left: 50%; position: relative; margin-top: 10px; width: 95%; padding: 10px 20px; font-size: 40px;">Suchen</button>
+	<div class="z-shadow2" id="searchresult" style="-webkit-transform:translateX(-50%); margin-top: 40px; transform:translateX(-50%); left: 50%; position: relative; background-color: white; width: 95%; min-height: 300px; font-size: 35px;"></div>
+</body>
+<script type="text/javascript" src="database.js"></script>
+<script type="text/javascript" src="daten.js"></script>
+<script type="text/javascript">
+var i = 0;
+var names = [];
+for (var i = 0; i < db.database.length; i++) {
+	names.push(db.database[i].name);
+};
+console.log(names);
+
+var search = function() {
+	document.getElementById('searchresult').innerHTML = "";
+	var fach = document.getElementById('fach').value;
+	var kurs = document.getElementById('kurs').value;
+	console.log(fach +", "+ kurs);
+
+
+	if (kurs == 1) {
+		if (fach == "Englisch(Klasse5)") {
+			console.log(db.where("englisch5", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("englisch5", "1");
+		};
+		if (fach == "Latein6") {
+			console.log(db.where("latein6", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("latein6", "1");
+		};
+		if (fach == "Latein8") {
+			console.log(db.where("latein8", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("latein8", "1");
+		};
+		if (fach == "Französisch6") {
+			console.log(db.where("franzoesisch6", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("franzoesisch6", "1");
+		};
+		if (fach == "Französisch8") {
+			console.log(db.where("franzoesisch8", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("franzoesisch8", "1");
+		};
+		if (fach == "Spanisch") {
+			console.log(db.where("spanisch", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("spanisch", "1");
+		};
+		if (fach == "Kunst") {
+			console.log(db.where("kunst", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("kunst", "1");
+		};
+		if (fach == "Musik") {
+			console.log(db.where("musik", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("musik", "1");
+		};
+		if (fach == "Geschichte") {
+			console.log(db.where("geschichte", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("geschichte", "1");
+		};
+		if (fach == "Sozialwissenschaften") {
+			console.log(db.where("sozialwissenschaften", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("sozialwissenschaften", "1");
+		};
+		if (fach == "Erdkunde") {
+			console.log(db.where("erdkunde", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("erdkunde", "1");
+		};
+		if (fach == "Pädagogik") {
+			console.log(db.where("paedagogik", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("paedagogik", "1");
+		};
+		if (fach == "Philosophie") {
+			console.log(db.where("philosophie", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("philosophie", "1");
+		};
+		if (fach == "Biologie") {
+			console.log(db.where("biologie", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("biologie", "1");
+		};
+		if (fach == "Chemie") {
+			console.log(db.where("chemie", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("chemie", "1");
+		};
+		if (fach == "Physik") {
+			console.log(db.where("physik", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("physik", "1");
+		};
+		if (fach == "Informatik") {
+			console.log(db.where("informatik", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("informatik", "1");
+		};
+		if (fach == "Mathematik") {
+			console.log(db.where("mathe", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("mathe", "1");
+		};
+		if (fach == "katholische Religion") {
+			console.log(db.where("kreligion", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("kreligion", "1");
+		};
+		if (fach == "evangelische Religion") {
+			console.log(db.where("ereligion", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("ereligion", "1");
+		};
+		if (fach == "Sport") {
+			console.log(db.where("sport", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("sport", "1");
+		};
+		if (fach == "Englischvertierfung") {
+			console.log(db.where("englischv", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("englischv", "1");
+		};
+		if (fach == "Mathematikvertierfung") {
+			console.log(db.where("mathev", "1"));
+			document.getElementById('searchresult').innerHTML = db.where("mathev", "1");
+		};
+	};
+
+
+	if (kurs == 2) {
+		if (fach == "Englisch(Klasse5)") {
+			console.log(db.where("englisch5", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("englisch5", "2");
+		};
+		if (fach == "Latein6") {
+			console.log(db.where("latein6", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("latein6", "2");
+		};
+		if (fach == "Latein8") {
+			console.log(db.where("latein8", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("latein8", "2");
+		};
+		if (fach == "Französisch6") {
+			console.log(db.where("franzoesisch6", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("franzoesisch6", "2");
+		};
+		if (fach == "Französisch8") {
+			console.log(db.where("franzoesisch8", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("franzoesisch8", "2");
+		};
+		if (fach == "Spanisch") {
+			console.log(db.where("spanisch", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("spanisch", "2");
+		};
+		if (fach == "Kunst") {
+			console.log(db.where("kunst", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("kunst", "2");
+		};
+		if (fach == "Musik") {
+			console.log(db.where("musik", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("musik", "2");
+		};
+		if (fach == "Geschichte") {
+			console.log(db.where("geschichte", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("geschichte", "2");
+		};
+		if (fach == "Sozialwissenschaften") {
+			console.log(db.where("sozialwissenschaften", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("sozialwissenschaften", "2");
+		};
+		if (fach == "Erdkunde") {
+			console.log(db.where("erdkunde", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("erdkunde", "2");
+		};
+		if (fach == "Pädagogik") {
+			console.log(db.where("paedagogik", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("paedagogik", "2");
+		};
+		if (fach == "Philosophie") {
+			console.log(db.where("philosophie", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("philosophie", "2");
+		};
+		if (fach == "Biologie") {
+			console.log(db.where("biologie", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("biologie", "2");
+		};
+		if (fach == "Chemie") {
+			console.log(db.where("chemie", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("chemie", "2");
+		};
+		if (fach == "Physik") {
+			console.log(db.where("physik", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("physik", "2");
+		};
+		if (fach == "Informatik") {
+			console.log(db.where("informatik", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("informatik", "2");
+		};
+		if (fach == "Mathematik") {
+			console.log(db.where("mathe", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("mathe", "2");
+		};
+		if (fach == "katholische Religion") {
+			console.log(db.where("kreligion", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("kreligion", "2");
+		};
+		if (fach == "evangelische Religion") {
+			console.log(db.where("ereligion", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("ereligion", "2");
+		};
+		if (fach == "Sport") {
+			console.log(db.where("sport", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("sport", "2");
+		};
+		if (fach == "Englischvertierfung") {
+			console.log(db.where("englischv", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("englischv", "2");
+		};
+		if (fach == "Mathematikvertierfung") {
+			console.log(db.where("mathev", "2"));
+			document.getElementById('searchresult').innerHTML = db.where("mathev", "2");
+		};
+	};
+
+	if (kurs == 3) {
+		if (fach == "Englisch(Klasse5)") {
+			console.log(db.where("englisch5", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("englisch5", "3");
+		};
+		if (fach == "Latein6") {
+			console.log(db.where("latein6", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("latein6", "3");
+		};
+		if (fach == "Latein8") {
+			console.log(db.where("latein8", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("latein8", "3");
+		};
+		if (fach == "Französisch6") {
+			console.log(db.where("franzoesisch6", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("franzoesisch6", "3");
+		};
+		if (fach == "Französisch8") {
+			console.log(db.where("franzoesisch8", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("franzoesisch8", "3");
+		};
+		if (fach == "Spanisch") {
+			console.log(db.where("spanisch", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("spanisch", "3");
+		};
+		if (fach == "Kunst") {
+			console.log(db.where("kunst", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("kunst", "3");
+		};
+		if (fach == "Musik") {
+			console.log(db.where("musik", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("musik", "3");
+		};
+		if (fach == "Geschichte") {
+			console.log(db.where("geschichte", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("geschichte", "3");
+		};
+		if (fach == "Sozialwissenschaften") {
+			console.log(db.where("sozialwissenschaften", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("sozialwissenschaften", "3");
+		};
+		if (fach == "Erdkunde") {
+			console.log(db.where("erdkunde", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("erdkunde", "3");
+		};
+		if (fach == "Pädagogik") {
+			console.log(db.where("paedagogik", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("paedagogik", "3");
+		};
+		if (fach == "Philosophie") {
+			console.log(db.where("philosophie", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("philosophie", "3");
+		};
+		if (fach == "Biologie") {
+			console.log(db.where("biologie", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("biologie", "3");
+		};
+		if (fach == "Chemie") {
+			console.log(db.where("chemie", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("chemie", "3");
+		};
+		if (fach == "Physik") {
+			console.log(db.where("physik", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("physik", "3");
+		};
+		if (fach == "Informatik") {
+			console.log(db.where("informatik", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("informatik", "3");
+		};
+		if (fach == "Mathematik") {
+			console.log(db.where("mathe", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("mathe", "3");
+		};
+		if (fach == "katholische Religion") {
+			console.log(db.where("kreligion", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("kreligion", "3");
+		};
+		if (fach == "evangelische Religion") {
+			console.log(db.where("ereligion", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("ereligion", "3");
+		};
+		if (fach == "Sport") {
+			console.log(db.where("sport", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("sport", "3");
+		};
+		if (fach == "Englischvertierfung") {
+			console.log(db.where("englischv", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("englischv", "3");
+		};
+		if (fach == "Mathematikvertierfung") {
+			console.log(db.where("mathev", "3"));
+			document.getElementById('searchresult').innerHTML = db.where("mathev", "3");
+		};
+	};
+
+
+	if (kurs == 4) {
+		if (fach == "Englisch(Klasse5)") {
+			console.log(db.where("englisch5", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("englisch5", "4");
+		};
+		if (fach == "Latein6") {
+			console.log(db.where("latein6", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("latein6", "4");
+		};
+		if (fach == "Latein8") {
+			console.log(db.where("latein8", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("latein8", "4");
+		};
+		if (fach == "Französisch6") {
+			console.log(db.where("franzoesisch6", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("franzoesisch6", "4");
+		};
+		if (fach == "Französisch8") {
+			console.log(db.where("franzoesisch8", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("franzoesisch8", "4");
+		};
+		if (fach == "Spanisch") {
+			console.log(db.where("spanisch", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("spanisch", "4");
+		};
+		if (fach == "Kunst") {
+			console.log(db.where("kunst", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("kunst", "4");
+		};
+		if (fach == "Musik") {
+			console.log(db.where("musik", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("musik", "4");
+		};
+		if (fach == "Geschichte") {
+			console.log(db.where("geschichte", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("geschichte", "4");
+		};
+		if (fach == "Sozialwissenschaften") {
+			console.log(db.where("sozialwissenschaften", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("sozialwissenschaften", "4");
+		};
+		if (fach == "Erdkunde") {
+			console.log(db.where("erdkunde", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("erdkunde", "4");
+		};
+		if (fach == "Pädagogik") {
+			console.log(db.where("paedagogik", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("paedagogik", "4");
+		};
+		if (fach == "Philosophie") {
+			console.log(db.where("philosophie", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("philosophie", "4");
+		};
+		if (fach == "Biologie") {
+			console.log(db.where("biologie", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("biologie", "4");
+		};
+		if (fach == "Chemie") {
+			console.log(db.where("chemie", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("chemie", "4");
+		};
+		if (fach == "Physik") {
+			console.log(db.where("physik", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("physik", "4");
+		};
+		if (fach == "Informatik") {
+			console.log(db.where("informatik", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("informatik", "4");
+		};
+		if (fach == "Mathematik") {
+			console.log(db.where("mathe", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("mathe", "4");
+		};
+		if (fach == "katholische Religion") {
+			console.log(db.where("kreligion", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("kreligion", "4");
+		};
+		if (fach == "evangelische Religion") {
+			console.log(db.where("ereligion", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("ereligion", "4");
+		};
+		if (fach == "Sport") {
+			console.log(db.where("sport", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("sport", "4");
+		};
+		if (fach == "Englischvertierfung") {
+			console.log(db.where("englischv", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("englischv", "4");
+		};
+		if (fach == "Mathematikvertierfung") {
+			console.log(db.where("mathev", "4"));
+			document.getElementById('searchresult').innerHTML = db.where("mathev", "4");
+		};
+	};
+
+
+	if (kurs == 5) {
+		if (fach == "Englisch(Klasse5)") {
+			console.log(db.where("englisch5", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("englisch5", "5");
+		};
+		if (fach == "Latein6") {
+			console.log(db.where("latein6", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("latein6", "5");
+		};
+		if (fach == "Latein8") {
+			console.log(db.where("latein8", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("latein8", "5");
+		};
+		if (fach == "Französisch6") {
+			console.log(db.where("franzoesisch6", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("franzoesisch6", "5");
+		};
+		if (fach == "Französisch8") {
+			console.log(db.where("franzoesisch8", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("franzoesisch8", "5");
+		};
+		if (fach == "Spanisch") {
+			console.log(db.where("spanisch", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("spanisch", "5");
+		};
+		if (fach == "Kunst") {
+			console.log(db.where("kunst", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("kunst", "5");
+		};
+		if (fach == "Musik") {
+			console.log(db.where("musik", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("musik", "5");
+		};
+		if (fach == "Geschichte") {
+			console.log(db.where("geschichte", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("geschichte", "5");
+		};
+		if (fach == "Sozialwissenschaften") {
+			console.log(db.where("sozialwissenschaften", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("sozialwissenschaften", "5");
+		};
+		if (fach == "Erdkunde") {
+			console.log(db.where("erdkunde", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("erdkunde", "5");
+		};
+		if (fach == "Pädagogik") {
+			console.log(db.where("paedagogik", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("paedagogik", "5");
+		};
+		if (fach == "Philosophie") {
+			console.log(db.where("philosophie", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("philosophie", "5");
+		};
+		if (fach == "Biologie") {
+			console.log(db.where("biologie", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("biologie", "5");
+		};
+		if (fach == "Chemie") {
+			console.log(db.where("chemie", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("chemie", "5");
+		};
+		if (fach == "Physik") {
+			console.log(db.where("physik", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("physik", "5");
+		};
+		if (fach == "Informatik") {
+			console.log(db.where("informatik", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("informatik", "5");
+		};
+		if (fach == "Mathematik") {
+			console.log(db.where("mathe", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("mathe", "5");
+		};
+		if (fach == "katholische Religion") {
+			console.log(db.where("kreligion", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("kreligion", "5");
+		};
+		if (fach == "evangelische Religion") {
+			console.log(db.where("ereligion", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("ereligion", "5");
+		};
+		if (fach == "Sport") {
+			console.log(db.where("sport", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("sport", "5");
+		};
+		if (fach == "Englischvertierfung") {
+			console.log(db.where("englischv", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("englischv", "5");
+		};
+		if (fach == "Mathematikvertierfung") {
+			console.log(db.where("mathev", "5"));
+			document.getElementById('searchresult').innerHTML = db.where("mathev", "5");
+		};
+	};
+};
+
+
+</script>
+</html>
